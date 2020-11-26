@@ -11,10 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -25,7 +24,7 @@ SECRET_KEY = 'o2=xc=3i47rs_!!yn%#++n^k)=x7i@lh7v#+z56z*i$*qds=7='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*']
 
 
 # Application definition
@@ -37,6 +36,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Catalogo'
+]
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+ os.path.join(BASE_DIR, 'static'),
+ os.path.join(BASE_DIR, 'catalogo/static'),
 ]
 
 MIDDLEWARE = [
