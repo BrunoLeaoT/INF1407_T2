@@ -16,10 +16,12 @@ Including another URLconf
 from Catalogo import views
 from LeaoMarinho import accountViews
 from django.urls import path
-
+from django.urls import include
 urlpatterns = [
-    path('',LeaoMarinho.home, name='homepage'),
+    path('',accountViews.home, name='homepage'),
+	path('login',accountViews.login, name='login'),
+	path('registro',accountViews.create, name='registro'),
     path('catalogo',views.catalogo, name='homepage'),
-    path('imageInfo', views.imageInfo,name='image'),
+    path('Catalogo/', include('Catalogo.urls')),
 
 ]
