@@ -5,11 +5,11 @@
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <label>Nome</label><br>
-    <input type="text" name="nome" value=""><br>
+    <input type="text" name="nome" value="" required><br>
     <label>especie</label><br>
     <input type="text" name="especie" value=""><br>
     <label for="img">Select image:</label>
-    <input id="file-picker" type="file" name="file" accept="image/*" ><br>
+    <input id="file-picker" type="file" name="file" accept="image/*" required><br>
     <input type="hidden" name="idCatalogo" value="{{idCatalogo}}"> 
     <input type="submit" value="Submit">
 </form>

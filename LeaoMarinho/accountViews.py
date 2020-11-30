@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from LeaoMarinho.controller.usersController import UserController
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponse
 from pymongo import MongoClient
 from hashlib import sha256
 from bson.objectid import ObjectId
 from hashlib import sha256
+import random
 userController = UserController()
 database = 'mongodb+srv://bruno:br11do12@cluster0.iuukf.mongodb.net/test'
 client = MongoClient(database)
@@ -81,3 +82,8 @@ def mudarSenha(request):
 			return render(request, 'account/mudar-senha.html', {'erro':'Senha antiga incorreta'})
 	else:
 		return render(request, 'account/mudar-senha.html')
+
+def changePicture(request):
+	picNumber = random.randint(1,3)
+	filename = 'whale'+str(picNumber)+'.png'
+	return HttpResponse(filename)

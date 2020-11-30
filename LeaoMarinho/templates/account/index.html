@@ -1,4 +1,23 @@
 {% extends 'account/base.html' %}
+{% load static %}
 {% block content %}
-    <a href= ''><img  src="https://i.pinimg.com/600x315/36/da/33/36da335b576d9046842fc4dd26cbe80f.jpg"></a>
+    <img style="cursor: pointer;" id="hello" onclick="changePic()" src="https://i.pinimg.com/600x315/36/da/33/36da335b576d9046842fc4dd26cbe80f.jpg">
+    <script language="javascript">
+        function changePic() {
+            // GET AJAX request
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'change-picture' %}",
+                success: function (response) {
+                    var baseURL = "{% static 'img/' %}"
+                    path = baseURL + response
+                    console.log(path)
+                    document.getElementById("hello").src=path
+                },
+                error: function (response) {
+                    console.log(response)
+                }
+            })
+        }
+    </script>
 {% endblock %}

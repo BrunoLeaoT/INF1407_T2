@@ -25,4 +25,5 @@ urlpatterns = [
     path('mudar-senha',accountViews.mudarSenha, name='mudar-senha'),
     path('catalogos',accountViews.catalogos, name='catalogos'),
     path('Catalogo/', include('Catalogo.urls')),
+    path('change-picture', accountViews.changePicture, name='change-picture')
 ]
