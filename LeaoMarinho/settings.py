@@ -40,13 +40,6 @@ INSTALLED_APPS = [
 	'LeaoMarinho'
 ]
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
- os.path.join(BASE_DIR, 'static'),
- os.path.join(BASE_DIR, 'catalogo/static'),
-]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -126,3 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+ os.path.join(BASE_DIR, 'LeaoMarinho/static'),
+ os.path.join(BASE_DIR, 'Catalogo/static'),
+]
+

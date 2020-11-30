@@ -18,10 +18,11 @@ from LeaoMarinho import accountViews
 from django.urls import path
 from django.urls import include
 urlpatterns = [
-    path('',accountViews.home, name='homepage'),
+    path('',accountViews.home, name='home'),
 	path('login',accountViews.login, name='login'),
+    path('logout',accountViews.logout, name='logout'),
 	path('registro',accountViews.create, name='registro'),
-    path('catalogo',views.catalogo, name='homepage'),
+    path('mudar-senha',accountViews.mudarSenha, name='mudar-senha'),
+    path('catalogos',accountViews.catalogos, name='catalogos'),
     path('Catalogo/', include('Catalogo.urls')),
-
 ]

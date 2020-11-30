@@ -6,11 +6,12 @@ db=client.inf1013
 
 class UserController:
 	def login(self,user,password):
-		hashedPassword = sha256(password).hexdigest()
+		hashedPassword = sha256(password.encode('utf-8')).hexdigest()
+		print(hashedPassword)
 		user = db.users.find_one({"user":user,"password":hashedPassword})
 		if user:
 			return user
-		return None
+		return False
 		
 	def create(self,user,password):
 		hashedPassword = sha256(password.encode('utf-8')).hexdigest()

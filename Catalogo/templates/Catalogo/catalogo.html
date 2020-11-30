@@ -1,0 +1,21 @@
+{% extends 'catalogo/base.html' %}
+{% load static %}
+<!-- {% block head %}<link href="{% static 'css/index.css' %}" rel="stylesheet">{% endblock %} -->
+{% block header %}{{nomeCatalogo}}{% endblock %}
+{% block content %}
+<ul style="list-style-type: none">
+    {% for individuo in individuos %}
+        <li>
+            <div style="float: left;margin-right: 3rem;">
+                <img style="height: 200px;width: 200px;" src="data:image/jpg;base64, {{ individuo.imageBase64 }}"> 
+                <p>{{individuo.individuo}}</p>
+                <a href="{% url 'Catalogo:editar-individuo' id=individuo.id %}"><button class="btn btn-light" type="button">Editar</button></a>
+                <a href="{% url 'Catalogo:apagar-individuo' id=individuo.id %}"><button class="btn btn-danger" type="button">Apagar</button></a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'Catalogo:add-individuo' nome=nomeCatalogo %}"><button class="footerButton" type="button">Adicionar novo</button></a>
+
+{% endblock %}

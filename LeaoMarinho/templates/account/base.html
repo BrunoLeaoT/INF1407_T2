@@ -12,11 +12,14 @@
 <body>
 	<h1>Leao Marinho</h1>
 	<div>
-		<a href="">Catalogo</a> |
-		<a href="">Troca senha</a> |
-		<a href="">Logout</a> |
+		{% if request.session.userId %}
+		<a href="{% url 'catalogos' %}">Catalogos</a> |
+		<a href="{% url 'mudar-senha' %}">Troca senha</a> |
+		<a href="{% url 'logout' %}">Logout</a> |
+		{% else %}
 		<a href="{% url 'registro' %}">Registro</a> |
 		<a href="{% url 'login' %}">Login</a> |
+		{% endif %}
 	</div>
 
 	{% block content %}{% endblock %}

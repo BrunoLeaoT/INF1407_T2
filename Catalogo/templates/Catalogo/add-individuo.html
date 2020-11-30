@@ -1,0 +1,17 @@
+
+{% extends 'catalogo/base.html' %}
+{% block header %}Adicionar individuo{% endblock %}
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Nome</label><br>
+    <input type="text" name="nome" value=""><br>
+    <label>especie</label><br>
+    <input type="text" name="especie" value=""><br>
+    <label for="img">Select image:</label>
+    <input id="file-picker" type="file" name="file" accept="image/*" ><br>
+    <input type="hidden" name="idCatalogo" value="{{idCatalogo}}"> 
+    <input type="submit" value="Submit">
+</form>
+<span>{{erro}}</span>
+{% endblock %}

@@ -1,0 +1,21 @@
+.navClass{
+    background-color: lightgray;
+    height: 2rem;
+}
+
+.footerButton{
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+
+.homeAnchor{
+    float: right;
+    font-size: medium;
+}

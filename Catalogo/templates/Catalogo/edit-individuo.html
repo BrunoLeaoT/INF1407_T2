@@ -1,0 +1,15 @@
+{% extends 'catalogo/base.html' %}
+{% block header %}Editar individuo{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <label>Nome</label><br>
+    <input type="text" name="nome" value=""><br>
+    <label >Especie</label><br>
+    <input type="text" name="especie" value=""><br>
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="submit" value="Submit">
+</form>
+<span>{{erro}}</span>
+
+{% endblock %}

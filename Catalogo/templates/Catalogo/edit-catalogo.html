@@ -1,0 +1,16 @@
+{% extends 'catalogo/base.html' %}
+{% block content %}
+<h1>Editar {{nome}}</h1><br><br>
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label>Nome catalogo</label>
+    <input type="text" name="newNome"> 
+  </div>
+  <input type="hidden" name="nome" value="{{nome}}"> 
+  <div class="form-group">
+    <input type="submit">
+  </div>
+</form>
+<span>{{result}}</span>
+{% endblock %}
